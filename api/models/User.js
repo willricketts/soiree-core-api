@@ -11,6 +11,12 @@ module.exports = {
   schema: true,
   attributes: {
 
+    handle: {
+      type: 'string',
+      required: true,
+      unique: true
+    },
+
     firstName: {
       type: 'string',
       required: true

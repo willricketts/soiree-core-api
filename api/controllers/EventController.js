@@ -12,9 +12,10 @@ module.exports = {
   create: create,
   show: show,
   modify: modify,
-  deactivate: deactivate
+  deactivate: deactivate,
 
   // COMPOUND ACTIONS
+  findAllEventsByUser: findAllEventsByUser
 };
 
 // CRUD ACTIONS
@@ -70,5 +71,23 @@ function deactivate(req, res) {
 // COMPOUND ACTIONS
 
 function findAllEventsByUser(req, res) {
-  
+  var p = req.params.all();
+
+  User.findOne({ handle: p.handle }, function(err, user) {
+    errorHandler.serverError(err, res);
+    if(!user) {
+      res.json(400, 'User not found.');
+    }
+    else {
+      Event.find({ owner: user.id }, function(err, events) {
+        errorHandler.serverError(err, res);
+        if(!events) {
+          res.json(200, 'No events found for ' + user.handle);
+        }
+        else {
+          res.json(200, events);
+        }
+      });
+    }
+  });
 }

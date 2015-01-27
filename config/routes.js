@@ -29,8 +29,12 @@ module.exports.routes = {
   'get /places/:id' : 'PlaceController.show',
   'post /places/create' : 'PlaceController.create',
   'put /places/update/:id' : 'PlaceController.modify',
-  'delete /places/delete/:id' : 'PlaceController.deactivate'
+  'delete /places/delete/:id' : 'PlaceController.deactivate',
 
   // USER
-
+  'get /users' : 'UserController.index',
+  'get /users/:handle' : 'UserController.show',
+  'post /register' : 'UserController.create',
+  'put /users/update/:handle' : 'UserController.modify',
+  'delete /users/delete/:handle' : 'UserController.deactivate'
 };

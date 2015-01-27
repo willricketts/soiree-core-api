@@ -17,6 +17,7 @@ module.exports = {
 
 function index(req, res) {
   Place.find(function(err, places) {
+    errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, places);
     res.json(200, places);
   });
@@ -32,6 +33,7 @@ function create(req, res) {
       p.latitude = coordinates.lat;
       p.longitude = coordinates.lng;
       Place.create(p, function(err, place) {
+        errorHandler.serverError(err, res);
         errorHandler.nullCollection(res, place);
         res.json(201, place);
       });
@@ -51,6 +53,7 @@ function create(req, res) {
         longitude: a.longitude
       }, function(err, place) {
         errorHandler.serverError(err, res);
+        errorHandler.nullCollection(res, place);
         res.json(201, place);
       });
     });
@@ -64,6 +67,7 @@ function show(req, res) {
   var p = req.params.all();
 
   Place.findOne(p.id, function(err, place) {
+    errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, place);
     res.json(200, place);
   });
@@ -73,6 +77,7 @@ function modify(req, res) {
   var p = req.params.all();
 
   Place.update(p.id, p, function(err, place) {
+    errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, place);
     res.json(200, place);
   });
@@ -82,6 +87,7 @@ function deactivate(req, res) {
   var p = req.params.all();
 
   Place.update(p.id, { active: false }, function(err, place) {
+    errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, place);
     res.json(200, place);
   });

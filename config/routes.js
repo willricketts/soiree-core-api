@@ -16,6 +16,7 @@ module.exports.routes = {
   'post /events/create' : 'EventController.create',
   'put /events/update/:id' : 'EventController.modify',
   'delete /events/delete/:id' : 'EventController.deactivate',
+  'get /events/user/:handle' : 'EventController.findAllEventsByUser',
 
   // INVITATION
   'get /invitations' : 'InvitationController.index',

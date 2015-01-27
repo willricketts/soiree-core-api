@@ -30,7 +30,6 @@ function index(req, res) {
 
 function create(req, res) {
   var p = req.params.all();
-
   Event.create(p, function(err, event) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, events);
@@ -40,7 +39,6 @@ function create(req, res) {
 
 function show(req, res) {
   var p = req.params.all();
-
   Event.findOne(p.id, function(err, event) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, event);
@@ -50,7 +48,6 @@ function show(req, res) {
 
 function modify(req, res) {
   var p = req.params.all();
-
   Event.update(p.id, p, function(err, event) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, event);
@@ -60,7 +57,6 @@ function modify(req, res) {
 
 function deactivate(req, res) {
   var p = req.params.all();
-
   Event.update(p.id, { active: false }, function(err, event) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, event);
@@ -72,7 +68,6 @@ function deactivate(req, res) {
 
 function findAllEventsByUser(req, res) {
   var p = req.params.all();
-
   User.findOne({ handle: p.handle }, function(err, user) {
     errorHandler.serverError(err, res);
     if(!user) {

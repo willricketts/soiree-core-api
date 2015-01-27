@@ -27,10 +27,22 @@ function create(req, res) {
   var p = req.params.all();
   var h = req.headers;
 
-  User.create(p, function(err, user) {
+  User.findOne({ email: p.email }, function(err, user) {
     errorHandler.serverError(err, res);
-    errorHandler.nullCollection(res, user);
-    res.json(201, user);
+    if(!user) {
+      sentry.hashPassword(password, function(err, hashedPassword) {
+        errorHandler.serverError(err, res);
+        p.password = hashedPassword;
+        User.create(p, function(err, user) {
+          errorHandler.serverError(err, res);
+          errorHandler.nullCollection(res, user);
+          res.json(201, user);
+        });
+      });
+    }
+    else {
+      res.json(400,'Email is already registered.')
+    }
   });
 }
 

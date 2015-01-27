@@ -6,4 +6,16 @@
 
 module.exports.routes = {
 
+  // UTILITY
+  'get /' : 'UtilityController.heartbeat',
+  'get /docs' : 'UtilityController.docs'
+
+  // EVENT
+
+  // INVITATION
+
+  // PLACE
+
+  // USER
+
 };

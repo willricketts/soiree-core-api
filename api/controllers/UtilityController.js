@@ -12,9 +12,9 @@ module.exports = {
 };
 
 function heartbeat(req, res) {
-  //send API version info
+  res.json({ version: 'v1' });
 }
 
 function docs(req, res) {
-  //send raw docs
+  res.json({ docs: 'http://github.com/willricketts/soiree-core' });
 }

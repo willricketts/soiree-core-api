@@ -40,7 +40,7 @@ module.exports = {
 
     active: {
       type: 'boolean',
-      required: true
+      defaultsTo: true
     },
 
     events: {

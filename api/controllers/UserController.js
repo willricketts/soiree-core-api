@@ -30,7 +30,7 @@ function create(req, res) {
   User.findOne({ email: p.email }, function(err, user) {
     errorHandler.serverError(err, res);
     if(!user) {
-      sentry.hashPassword(password, function(err, hashedPassword) {
+      sentry.hashPassword(p.password, function(err, hashedPassword) {
         errorHandler.serverError(err, res);
         p.password = hashedPassword;
         User.create(p, function(err, user) {
@@ -49,7 +49,7 @@ function create(req, res) {
 function show(req, res) {
   var p = req.params.all();
 
-  User.findOne(p.email, function(err, user) {
+  User.findOne({ handle: p.handle }, function(err, user) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, user);
     res.json(200, user);
@@ -59,7 +59,7 @@ function show(req, res) {
 function modify(req, res) {
   var p = req.params.all();
 
-  User.update(p.email, p, function(err, user) {
+  User.update({ handle: p.handle }, p, function(err, user) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, user);
     res.json(200, user);
@@ -69,7 +69,7 @@ function modify(req, res) {
 function deactivate(req, res) {
   var p = req.params.all();
 
-  User.update(p.email, p, function(err, user) {
+  User.update({ handle: p.handle }, p, function(err, user) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, user);
     res.json(200, user);

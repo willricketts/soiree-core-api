@@ -7,12 +7,17 @@
 
 module.exports = {
 
+  // CRUD ACTIONS
   index: index,
   create: create,
   show: show,
   modify: modify,
   deactivate: deactivate
+
+  // COMPOUND ACTIONS
 };
+
+// CRUD ACTIONS
 
 function index(req, res) {
   Event.find(function(err, events) {
@@ -60,4 +65,10 @@ function deactivate(req, res) {
     errorHandler.nullCollection(res, event);
     res.json(200, event);
   });
+}
+
+// COMPOUND ACTIONS
+
+function findAllEventsByUser(req, res) {
+  
 }

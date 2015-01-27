@@ -1,11 +1,11 @@
 //TODO: replace terrible uuid with 'token'
 
-var uuid = require('node-uuid');
+var token = require('guid');
 
 module.exports = {
 
   generate: function(callback) {
-    var newToken = uuid.v4();
-    callback(newToken);
+    var newToken = token.create();
+    callback(newToken.value);
   }
 };

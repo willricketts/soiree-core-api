@@ -1,3 +1,5 @@
+//TODO: replace terrible uuid with 'token'
+
 var uuid = require('node-uuid');
 
 module.exports = {

@@ -45,6 +45,11 @@ module.exports = {
 
     events: {
       model: 'Event'
+    },
+
+    admin: {
+      type: 'boolean',
+      defaultsTo: false
     }
   }
 };

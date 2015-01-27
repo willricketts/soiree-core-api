@@ -32,6 +32,11 @@ module.exports = {
 
     host: {
       model: 'User'
+    },
+
+    active: {
+      type: 'boolean',
+      defaultsTo: true
     }
   }
 };

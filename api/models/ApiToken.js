@@ -25,6 +25,11 @@ module.exports = {
     user: {
       type: 'string',
       required: true
+    },
+
+    active: {
+      type: 'boolean',
+      defaultsTo: true
     }
   }
 };

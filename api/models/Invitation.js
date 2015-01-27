@@ -9,7 +9,10 @@ module.exports = {
 
   connection: 'mongo',
   attributes: {
-
+    active: {
+      type: 'boolean',
+      defaultsTo: true
+    }
   }
 };
 

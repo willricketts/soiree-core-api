@@ -22,9 +22,14 @@ module.exports.routes = {
   'get /invitations/:id' : 'InvitationController.show',
   'post /invitations/create' : 'InvitationController.create',
   'put /invitations/update/:id' : 'InvitationController.modify',
-  'delete /invitations/delete/:id' : 'InvitationController.deactivate'
+  'delete /invitations/delete/:id' : 'InvitationController.deactivate',
 
   // PLACE
+  'get /places' : 'PlaceController.index',
+  'get /places/:id' : 'PlaceController.show',
+  'post /places/create' : 'PlaceController.create',
+  'put /places/update/:id' : 'PlaceController.modify',
+  'delete /places/delete/:id' : 'PlaceController.deactivate'
 
   // USER
 

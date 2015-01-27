@@ -25,6 +25,7 @@ function index(req, res) {
 
 function create(req, res) {
   var p = req.params.all();
+  var h = req.headers;
 
   User.create(p, function(err, user) {
     errorHandler.serverError(err, res);

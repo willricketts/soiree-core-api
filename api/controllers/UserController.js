@@ -1,7 +1,7 @@
 /**
- * EventController
+ * UserController
  *
- * @description :: Server-side logic for managing events
+ * @description :: Server-side logic for managing users
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
@@ -12,47 +12,48 @@ module.exports = {
   show: show,
   modify: modify,
   deactivate: deactivate
+
 };
 
 function index(req, res) {
-  Event.find(function(err, events) {
-    //errorHandler
-    res.json(200, events);
+  User.find(function(err, users) {
+    //error handler
+    res.json(200, users);
   });
 }
 
 function create(req, res) {
   var p = req.params.all();
 
-  Event.create(p, function(err, event) {
+  User.create(p, function(err, user) {
     //error handler
-    res.json(201, event);
+    res.json(201, user);
   });
 }
 
 function show(req, res) {
   var p = req.params.all();
 
-  Event.findOne(p.id, function(err, event) {
+  User.findOne(p.email, function(err, user) {
     //error handler
-    res.json(200, event);
+    res.json(200, user);
   });
 }
 
 function modify(req, res) {
   var p = req.params.all();
 
-  Event.update(p.id, p, function(err, event) {
+  User.update(p.email, p, function(err, user) {
     //error handler
-    res.json(200, event);
+    res.json(200, user);
   });
 }
 
 function deactivate(req, res) {
   var p = req.params.all();
 
-  Event.update(p.id, { active: false }, function(err, event) {
+  User.update(p.email, p, function(err, user) {
     //error handler
-    res.json(200, event);
+    res.json(200, user);
   });
 }

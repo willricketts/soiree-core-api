@@ -1,5 +1,5 @@
 /**
-* Event.js
+* User.js
 *
 * @description :: TODO: You might write a short summary of how this model works and what it represents here.
 * @docs        :: http://sailsjs.org/#!documentation/models
@@ -10,27 +10,35 @@ module.exports = {
   schema: true,
   attributes: {
 
-    title: {
+    firstName: {
       type: 'string',
       required: true
     },
 
-    date: {
+    lastName: {
       type: 'string',
       required: true
     },
 
-    owner: {
+    email: {
+      type: 'email',
+      required: true,
+      unique: true
+    },
+
+    password: {
       type: 'string',
       required: true
     },
 
-    place: {
-      model: 'Place'
+    active: {
+      type: 'boolean',
+      required: true
     },
 
-    host: {
-      model: 'User'
+    events: {
+      model: 'Event'
     }
   }
 };
+

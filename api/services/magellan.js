@@ -8,7 +8,7 @@ module.exports = {
   },
 
   reverseGeocode: function(coordinates, callback) {
-    geo.reverseGeocode(coordinates, function(address) {
+    reverseGeocode(coordinates, function(address) {
       callback(address);
     });
   },

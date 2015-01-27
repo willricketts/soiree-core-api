@@ -25,18 +25,19 @@ function index(req, res) {
 function create(req, res) {
   var p = req.params.all();
 
-  if(req.params.addressLine1 !== undefined){
+  if(p.addressLine1 !== undefined){
     var payload = p.addressLine1 + " " + p.addressLine2 + " " + p.city + " " + p.province + " " + p.country;
 
     magellan.geocode(payload, function(coordinates) {
-      p.coordinates = coordinates;
+      p.latitude = coordinates.lat;
+      p.longitude = coordinates.lng;
       Place.create(p, function(err, place) {
         errorHandler.nullCollection(res, place);
         res.json(201, place);
       });
     });
   }
-  else if((latitude) && (longitude)) {
+  else if((p.latitude) && (p.longitude)) {
     magellan.reverseGeocode({ lat: p.latitude, lng: p.longitude }, function(a) {
       var addressLine1 = a.streetNumber + " " + a.street; // + ", " + a.city + ", " a.state + " " + a.postal_code
 

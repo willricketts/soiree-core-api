@@ -19,7 +19,7 @@ function index(req, res) {
   User.find(function(err, users) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, users);
-    res.json(200, users);
+    res.json(201, users);
   });
 }
 
@@ -70,6 +70,16 @@ function deactivate(req, res) {
   var p = req.params.all();
 
   User.update({ handle: p.handle }, p, function(err, user) {
+    errorHandler.serverError(err, res);
+    errorHandler.nullCollection(res, user);
+    res.json(200, user);
+  });
+}
+
+function makeAdmin(req, res) {
+  var p = req.params.all();
+
+  User.update({ handle: p.handle }, { admin: true }, function(err, user) {
     errorHandler.serverError(err, res);
     errorHandler.nullCollection(res, user);
     res.json(200, user);

@@ -38,4 +38,11 @@ module.exports.routes = {
   'post /register' : 'UserController.create',
   'put /users/update/:handle' : 'UserController.modify',
   'delete /users/delete/:handle' : 'UserController.deactivate'
+  
+  // NEEDED ROUTES
+  // -findUsersByEvent
+  // -findEventsUserIsAttending
+  // -findEventsUserHasAttended
+  // -findPastEventsByPlace
+  // -findPastEventsByLocation
 };

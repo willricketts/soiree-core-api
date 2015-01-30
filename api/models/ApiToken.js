@@ -30,6 +30,10 @@ module.exports = {
     active: {
       type: 'boolean',
       defaultsTo: true
+    },
+    client: {
+      type: 'string',
+      required: true
     }
   }
 };

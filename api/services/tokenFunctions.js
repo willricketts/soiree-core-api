@@ -11,6 +11,12 @@ function generate(callback) {
   callback(newToken.value);
 }
 
-function deactivate(token, callback) {
-
+function deactivate(token, res, callback) {
+  ApiToken.findOne({token: token}, function (err, token) {
+    errorHandler.serverError(err, res);
+    ApiToken.update(token, {active: false}, function (err, token) {
+      errorHandler.serverError(err, res);
+      callback(token);
+    });
+  });
 }

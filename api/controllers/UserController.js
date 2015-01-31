@@ -7,14 +7,25 @@
 
 module.exports = {
 
+  // CRUD ACTIONS
   index: index,
   create: create,
   show: show,
   modify: modify,
   deactivate: deactivate,
-  makeAdmin: makeAdmin
+  makeAdmin: makeAdmin,
 
+  // COMPOUND ACTIONS
+
+  updateProfilePicture: updateProfilePicture,
+  updateTwitter: updateTwitter,
+  updateInstagram: updateInstagram,
+  updateFacebook: updateFacebook,
+  updateFoursquare: updateFoursquare,
+  updateMeetup: updateMeetup
 };
+
+// CRUD ACTIONS
 
 function index(req, res) {
   User.find(function(err, users) {
@@ -75,6 +86,32 @@ function deactivate(req, res) {
     errorHandler.nullCollection(res, user);
     res.json(200, user);
   });
+}
+
+// COMPOUND ACTIONS
+
+function updateProfilePicture(req, res) {
+
+}
+
+function updateTwitter(req, res) {
+
+}
+
+function updateInstagram(req, res) {
+
+}
+
+function updateFacebook(req, res) {
+
+}
+
+function updateFoursquare(req, res) {
+
+}
+
+function updateMeetup(req, res) {
+
 }
 
 function makeAdmin(req, res) {

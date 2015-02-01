@@ -12,9 +12,9 @@ function generate(callback) {
 }
 
 function deactivate(token, res, callback) {
-  ApiToken.findOne({token: token}, function (err, token) {
+  ApiToken.findOne({ token: token }, function (err, token) {
     errorHandler.serverError(err, res);
-    ApiToken.update(token, {active: false}, function (err, token) {
+    ApiToken.update(token, { active: false }, function (err, token) {
       errorHandler.serverError(err, res);
       callback(token);
     });

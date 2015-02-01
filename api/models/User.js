@@ -38,6 +38,10 @@ module.exports = {
       required: true
     },
 
+    profilePictureUrl: {
+      type: 'string'
+    },
+
     active: {
       type: 'boolean',
       defaultsTo: true

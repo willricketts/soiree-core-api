@@ -26,6 +26,10 @@ module.exports = {
       required: true
     },
 
+    tags: {
+      type: 'array'
+    },
+
     place: {
       model: 'Place'
     },

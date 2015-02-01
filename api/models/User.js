@@ -42,6 +42,26 @@ module.exports = {
       type: 'string'
     },
 
+    twitter: {
+      type: 'string'
+    },
+
+    instagram: {
+      type: 'string'
+    },
+
+    facebook: {
+      type: 'string'
+    },
+
+    foursquare: {
+      type: 'string'
+    },
+
+    meetup: {
+      type: 'string'
+    },
+
     active: {
       type: 'boolean',
       defaultsTo: true

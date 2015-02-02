@@ -48,7 +48,10 @@ function create(req, res) {
         User.create(p, function(err, user) {
           errorHandler.serverError(err, res);
           errorHandler.nullCollection(res, user);
-          res.json(201, user);
+          tokenFunctions.generate(function(token) {
+            user.apitoken = token;
+            res.json(201, user);
+          });
         });
       });
     }

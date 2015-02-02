@@ -15,8 +15,8 @@ function hashPassword(password, callback) {
   });
 }
 
-function checkPassword(password, callback) {
-  bcrypt.compare(password, hash, function(err, passwordsMatch) {
+function checkPassword(hash, submittedPassword, callback) {
+  bcrypt.compare(submittedPassword, hash, function(err, passwordsMatch) {
     passwordsMatch = (err) ? err : passwordsMatch;
     callback(err, passwordsMatch);
   });
